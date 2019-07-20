@@ -16,6 +16,8 @@ def hotelrates(N, Q):
     for query in q2_list:
         for rate in n2_list:
             if query[0] not in rate:
+                if n2_list.index(rate) == len(n2_list) - 1:
+                    out[query[0]] == None
                 continue
             else:
                 if rate[1] == 'A' and query[1] == 1:
@@ -23,31 +25,33 @@ def hotelrates(N, Q):
                         out[query[0]].append(int(rate[2])*1.5)
                     else:
                         out[query[0]] == [int(rate[2])*1.5]
+                    out[query[0]].sort()
                 elif rate[1] == 'B' and query[2] < 3:
                     if out.get(query[0]):
                         out[query[0]].append(None)
                     else:
                         out[query[0]] == [None]
+                    out[query[0]].sort()
                 elif rate[1] == 'C' and query[2] >= 7:
                     if out.get(query[0]):
                         out[query[0]].append(0.9*int(rate[2]))
                     else:
                         out[query[0]] == [0.9*int(rate[2])]
+                    out[query[0]].sort()
                 elif rate[1] == 'D' and query[2] <= 7:
                     if out.get(query[0]):
                         out[query[0]].append(1.1*int(rate[2]))
                     else:
                         out[query[0]] == [1.1*int(rate[2])]
+                    out[query[0]].sort()
                 else:
                     if out.get(query[0]):
                             out[query[0]].append(int(rate[2]))
                     else:
                         out[query[0]] == [int(rate[2])]
-    for val in out.values():
-        if None not in val:
-            print(sorted(val))
-        else:
-            print(None)
+                    out[query[0]].sort()
+        
+        print(out[query[0]])
                 
 
 
