@@ -16,14 +16,14 @@ def hotelrates(N, Q):
     for query in q2_list:
         for rate in n2_list:
             if query[0] not in rate:
-                pass
+                continue
             else:
                 if rate[1] == 'A' and query[1] == 1:
                     if out.get(query[0]):
                         out[query[0]].append(int(rate[2])*1.5)
                     else:
                         out[query[0]] == int(rate[2])*1.5
-                elif rate[1] ==
+                elif rate[1] == 
 
     
 
